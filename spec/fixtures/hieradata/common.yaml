@@ -1,0 +1,10 @@
+---
+octopass::repo_ensure: 'present'
+octopass::repo_gpgkey_url: 'https://packagecloud.io/linyows/octopass/gpgkey'
+octopass::package_ensure: 'installed'
+octopass::configfile: '/etc/octopass.conf'
+octopass::configfile_owner: 'root'
+octopass::configfile_group: 'root'
+octopass::configfile_mode: '0600'
+octopass::configs:
+
