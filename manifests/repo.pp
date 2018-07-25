@@ -23,12 +23,12 @@ class octopass::repo (
           metadata_expire => 300;
 
         'octopass':
-          descr           => 'linyows_octopass',
-          baseurl         => 'https://packagecloud.io/linyows/octopass/el/7/$basearch';
+          descr   => 'linyows_octopass',
+          baseurl => 'https://packagecloud.io/linyows/octopass/el/7/$basearch';
 
         'octopass-source':
-          descr           => 'linyows_octopass-source',
-          baseurl         => 'https://packagecloud.io/linyows/octopass/el/7/SRPMS';
+          descr   => 'linyows_octopass-source',
+          baseurl => 'https://packagecloud.io/linyows/octopass/el/7/SRPMS';
       }
     }
     'Debian': {
