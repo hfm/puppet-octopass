@@ -32,19 +32,9 @@ class octopass::repo (
       }
     }
     'Debian': {
-      apt::source { 'vaz':
-        location => 'http://repo.veeta.org/debian/',
-        release  => 'vaz',
-        repos    => 'main',
-        key      => {
-          id     => 'FB369DFBB565680BACBB5E86BA436689FC2D1244',
-          source => $gpgkey_url,
-        },
-        include  => {
-          deb    => true,
-          source => false,
-        }
-      }
+      include ::apt
+      require ::apt::update
+      include octopass::repo::apt
     }
     default: {
       fail("Unsupported os: ${facts['os']['name']}")

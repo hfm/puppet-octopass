@@ -20,6 +20,25 @@ describe 'octopass class' do
     end
   end
 
+  context 'Debian', if: os[:family] =~ %r{^(ubuntu|debian)$} do
+    describe package('lsb-release') do
+      it { is_expected.to be_installed }
+    end
+
+    describe package('apt-transport-https') do
+      it { is_expected.to be_installed }
+    end
+
+    describe file('/etc/apt/sources.list.d/octopass.list') do
+      let(:id) { Specinfra.backend.run_command('lsb_release -s -i').stdout.strip.downcase }
+      let(:distro) { Specinfra.backend.run_command('lsb_release -s -c').stdout.strip }
+
+      it { is_expected.to be_file }
+      its(:content) { is_expected.to match %r{^deb https://packagecloud.io/linyows/octopass/#{id}/ #{distro} main$} }
+      its(:content) { is_expected.to match %r{^deb-src https://packagecloud.io/linyows/octopass/#{id}/ #{distro} main$} }
+    end
+  end
+
   describe package('octopass') do
     it { is_expected.to be_installed }
   end

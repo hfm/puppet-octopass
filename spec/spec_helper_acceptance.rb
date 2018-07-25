@@ -15,10 +15,11 @@ RSpec.configure do |c|
     hosts.each do |host|
       install_dev_puppet_module_on(host, source: module_root)
       # Install dependencies
+      on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
       on(host, puppet('module', 'install', 'puppetlabs-apt'))
 
       host[:hieradatadir] = 'hieradata'
-      write_hiera_config_on(host, ['%{facts.os.family}', 'common'])
+      write_hiera_config_on(host, ['%{facts.os.name}', 'common'])
       copy_hiera_data_to(host, File.join(module_root, 'spec', 'fixtures', 'hieradata'))
     end
   end
