@@ -1,0 +1,26 @@
+# DO NOT EDIT: Managed by Puppet
+# O C T O P A S S
+
+# Required
+Token           = "<%= $octopass::token %>"
+
+## Use team
+#Organization    = "yourorganization"
+#Team            = "yourteam"
+
+## Use collaborators
+Owner           = "<%= $octopass::owner %>"
+Repository      = "<%= $octopass::repository %>"
+
+# Default
+Endpoint        = "<%= $octopass::endpoint %>"
+Group           = "<%= $octopass::gropu %>"
+Home            = "<%= $octopass::home %>"
+Shell           = "<%= $octopass::shell %>"
+UidStarts       = <%= $octopass::uid_starts %>
+Gid             = <%= $octopass::gid %>
+Cache           = <%= $octopass::cache %>
+Syslog          = <%= $octopass::syslog %>
+
+# Advanced
+SharedUsers     = [ "admin", "deploy" ]
