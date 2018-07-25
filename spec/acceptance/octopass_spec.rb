@@ -12,7 +12,7 @@ describe 'octopass class' do
   end
 
   context 'RedHat', if: os[:family] == 'redhat' do
-    %w[octopass octopass-source].each do |repo|
+    ['octopass', 'octopass-source'].each do |repo|
       describe yumrepo(repo) do
         it { is_expected.to exist }
         it { is_expected.to be_enabled }
