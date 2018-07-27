@@ -6,3 +6,9 @@ concat_basedir: "/tmp"
 ipaddress: "172.16.254.254"
 is_pe: false
 macaddress: "AA:AA:AA:AA:AA:AA"
+os:
+  family: "Debian"
+  name: "Debian"
+  release:
+    major: '9'
+    full: '9.0'
