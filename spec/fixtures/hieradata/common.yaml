@@ -6,5 +6,16 @@ octopass::configfile: '/etc/octopass.conf'
 octopass::configfile_owner: 'root'
 octopass::configfile_group: 'root'
 octopass::configfile_mode: '0600'
-octopass::configs:
-
+octopass::token: ~
+octopass::organization: ~
+octopass::team: ~
+octopass::owner: ~
+octopass::repository: ~
+octopass::endpoint: 'https://api.github.com'
+octopass::group: ~
+octopass::home: ~
+octopass::shell: ~
+octopass::uid_starts: 2000
+octopass::gid: 2000
+octopass::cache: 500
+octopass::syslog: false
