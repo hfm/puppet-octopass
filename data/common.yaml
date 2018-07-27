@@ -12,9 +12,9 @@ octopass::team: ~
 octopass::owner: ~
 octopass::repository: ~
 octopass::endpoint: 'https://api.github.com'
-octopass::group: "%alias('octopass::team')"
+octopass::group: ~
 octopass::home: ~
-octopass::shell: '/bin/bash'
+octopass::shell: ~
 octopass::uid_starts: 2000
 octopass::gid: 2000
 octopass::cache: 500

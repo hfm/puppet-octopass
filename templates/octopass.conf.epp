@@ -2,30 +2,20 @@
 # O C T O P A S S
 
 # Required
-<% if $octopass::token { -%>
 Token           = "<%= $octopass::token %>"
-<% } -%>
 
 ## Use team
-<% if $octopass::organization { -%>
 Organization    = "<%= $octopass::organization %>"
-<% } -%>
-<% if $octopass::team { -%>
 Team            = "<%= $octopass::team %>"
-<% } -%>
 
 ## Use collaborators
-<% if $octopass::owner { -%>
 Owner           = "<%= $octopass::owner %>"
-<% } -%>
 <% if $octopass::repository { -%>
 Repository      = "<%= $octopass::repository %>"
 <% } -%>
 
 # Default
-<% if $octopass::endpoint { -%>
 Endpoint        = "<%= $octopass::endpoint %>"
-<% } -%>
 <% if $octopass::group { -%>
 Group           = "<%= $octopass::group %>"
 <% } -%>
@@ -35,18 +25,10 @@ Home            = "<%= $octopass::home %>"
 <% if $octopass::shell { -%>
 Shell           = "<%= $octopass::shell %>"
 <% } -%>
-<% if $octopass::uid_starts { -%>
 UidStarts       = <%= $octopass::uid_starts %>
-<% } -%>
-<% if $octopass::gid { -%>
 Gid             = <%= $octopass::gid %>
-<% } -%>
-<% if $octopass::cache { -%>
 Cache           = <%= $octopass::cache %>
-<% } -%>
-<% if $octopass::syslog { -%>
 Syslog          = <%= $octopass::syslog %>
-<% } -%>
 
 # Advanced
 <% if $octopass::shared_users { -%>
