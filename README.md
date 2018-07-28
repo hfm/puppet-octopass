@@ -13,10 +13,7 @@
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your module does and what kind of problems users can solve with it.
-
-This should be a fairly short description helps the user decide if your module is what they want.
-
+The octopass module handles installing and configuring[octopass](https://github.com/linyows/octopass).
 
 ## Setup
 
