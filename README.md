@@ -1,15 +1,5 @@
 # puppet-octopass [![Build Status](https://travis-ci.org/hfm/puppet-octopass.svg?branch=master)](https://travis-ci.org/hfm/puppet-octopass) [![Puppet Forge](https://img.shields.io/puppetforge/v/hfm/octopass.svg?style=flat-square)](https://forge.puppetlabs.com/hfm/octopass)
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
-
-
 #### Table of Contents
 
 1. [Description](#description)
