@@ -1,8 +1,5 @@
 ---
-version: 5
-defaults:
-  data_hash: yaml_data
-  datadir: spec/fixtures/hieradata
-hierarchy:
-  - name: "Common data"
-    path: "common.yaml"
+:yaml:
+  :datadir: spec/fixtures/hieradata
+:hierarchy:
+  - common

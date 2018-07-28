@@ -5,22 +5,32 @@
 Token           = "<%= $octopass::token %>"
 
 ## Use team
-#Organization    = "yourorganization"
-#Team            = "yourteam"
+Organization    = "<%= $octopass::organization %>"
+Team            = "<%= $octopass::team %>"
 
 ## Use collaborators
 Owner           = "<%= $octopass::owner %>"
+<% if $octopass::repository { -%>
 Repository      = "<%= $octopass::repository %>"
+<% } -%>
 
 # Default
 Endpoint        = "<%= $octopass::endpoint %>"
-Group           = "<%= $octopass::gropu %>"
+<% if $octopass::group { -%>
+Group           = "<%= $octopass::group %>"
+<% } -%>
+<% if $octopass::home { -%>
 Home            = "<%= $octopass::home %>"
+<% } -%>
+<% if $octopass::shell { -%>
 Shell           = "<%= $octopass::shell %>"
+<% } -%>
 UidStarts       = <%= $octopass::uid_starts %>
 Gid             = <%= $octopass::gid %>
 Cache           = <%= $octopass::cache %>
 Syslog          = <%= $octopass::syslog %>
 
 # Advanced
-SharedUsers     = [ "admin", "deploy" ]
+<% if $octopass::shared_users { -%>
+SharedUsers     = [ <%= $octopass::shared_users.join(',') %> ]
+<% } -%>

@@ -12,6 +12,20 @@ class octopass (
   String $configfile_owner,
   String $configfile_group,
   String $configfile_mode,
+  String $token,
+  String $organization,
+  String $team,
+  String $owner,
+  Optional[String] $repository,
+  String $endpoint,
+  Optional[String] $group,
+  Optional[String] $home,
+  Optional[String] $shell,
+  Integer $uid_starts,
+  Integer $gid,
+  Integer $cache,
+  Boolean $syslog,
+  Optional[Array[String]] $shared_users,
 ) {
 
   include octopass::repo
