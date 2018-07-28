@@ -83,7 +83,7 @@ Default: 'medium-loud'.
 
 ## Limitations
 
-In the Limitations section, list any incompatibilities, known issues, or other warnings.
+See `operatingsystem_support` in [metadata.json](./metadata.json)
 
 ## Development
 
