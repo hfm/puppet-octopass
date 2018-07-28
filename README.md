@@ -28,7 +28,7 @@ If there's more that they should know about, though, this is the place to mentio
 
 ### Setup Requirements
 
-The proxysql module requires the following puppet module:
+The octopass module requires the following puppet module:
 
 - [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib): version 4.6.x or newer
 - [puppetlabs-apt](https://forge.puppet.com/puppetlabs/apt): version 4.x (only Debian-based distributions).
@@ -74,7 +74,7 @@ See `operatingsystem_support` in [metadata.json](./metadata.json)
 
 ### Running tests
 
-The proxysql puppet module contains tests for both [rspec-puppet](http://rspec-puppet.com) (unit tests) and [beaker-rspec](https://github.com/puppetlabs/beaker-rspec) (acceptance tests) to verify functionality. For detailed information on using these tools, please see their respective documentation.
+The octopass puppet module contains tests for both [rspec-puppet](http://rspec-puppet.com) (unit tests) and [beaker-rspec](https://github.com/puppetlabs/beaker-rspec) (acceptance tests) to verify functionality. For detailed information on using these tools, please see their respective documentation.
 
 #### Testing quickstart
 
