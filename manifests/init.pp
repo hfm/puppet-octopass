@@ -25,6 +25,7 @@ class octopass (
   Integer $gid,
   Integer $cache,
   Boolean $syslog,
+  Optional[Array[String]] $shared_users,
 ) {
 
   include octopass::repo

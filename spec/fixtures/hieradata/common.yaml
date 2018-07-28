@@ -19,3 +19,4 @@ octopass::uid_starts: 2000
 octopass::gid: 2000
 octopass::cache: 500
 octopass::syslog: false
+octopass::shared_users: ~
