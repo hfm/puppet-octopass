@@ -87,7 +87,34 @@ See `operatingsystem_support` in [metadata.json](./metadata.json)
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing to your project and how they should submit their work.
+### Running tests
+
+The proxysql puppet module contains tests for both [rspec-puppet](http://rspec-puppet.com) (unit tests) and [beaker-rspec](https://github.com/puppetlabs/beaker-rspec) (acceptance tests) to verify functionality. For detailed information on using these tools, please see their respective documentation.
+
+#### Testing quickstart
+
+- Unit tests:
+
+```console
+$ bundle install
+$ bundle exec rake
+```
+
+- Acceptance tests:
+
+```console
+# Set your DOCKER_HOST variable
+$ eval "$(docker-machine env default)"
+
+# List available beaker nodesets
+$ bundle exec rake beaker_nodes
+centos7
+stretch
+xenial
+
+# Run beaker acceptance tests
+$ BEAKER_set=debian9 bundle exec rake beaker
+```
 
 ## Release Notes/Contributors/Etc. **Optional**
 
