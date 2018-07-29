@@ -1,9 +1,7 @@
-# A description of what this class does
+# @summary Configure octopass.
 #
-# @summary A short summary of the purpose of this class
+# @private
 #
-# @example
-#   include octopass::config
 class octopass::config {
 
   file { $octopass::configfile:

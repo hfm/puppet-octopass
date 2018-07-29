@@ -1,9 +1,7 @@
-# A description of what this class does
+# @summary Install the octopass package.
 #
-# @summary A short summary of the purpose of this class
+# @private
 #
-# @example
-#   include octopass::install
 class octopass::install {
 
   package { 'octopass':
