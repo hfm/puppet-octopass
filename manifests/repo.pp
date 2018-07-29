@@ -2,22 +2,17 @@
 #
 # @summary A short summary of the purpose of this class
 #
-# @example
-#   include octopass::repo
-class octopass::repo (
-  String $ensure = 'present',
-  String $gpgkey_url = 'https://packagecloud.io/linyows/octopass/gpgkey',
-) {
+class octopass::repo {
 
   case $facts['os']['family'] {
     'RedHat': {
       yumrepo {
         default:
-          ensure          => $ensure,
+          ensure          => $octopass::repo_ensure,
           repo_gpgcheck   => 1,
           gpgcheck        => 0,
           enabled         => 1,
-          gpgkey          => $gpgkey_url,
+          gpgkey          => $octopass::repo_gpgkey_url,
           sslverify       => 1,
           sslcacert       => '/etc/pki/tls/certs/ca-bundle.crt',
           metadata_expire => 300;
