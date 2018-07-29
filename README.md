@@ -1,15 +1,4 @@
-
-# octopass
-
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
-
+# puppet-octopass [![Build Status](https://travis-ci.org/hfm/puppet-octopass.svg?branch=master)](https://travis-ci.org/hfm/puppet-octopass) [![Puppet Forge](https://img.shields.io/puppetforge/v/hfm/octopass.svg?style=flat-square)](https://forge.puppetlabs.com/hfm/octopass)
 
 #### Table of Contents
 
@@ -17,17 +6,15 @@ The README template below provides a starting point with details about what info
 2. [Setup - The basics of getting started with octopass](#setup)
     * [What octopass affects](#what-octopass-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with octopass](#beginning-with-octopass)
 3. [Usage - Configuration options and additional functionality](#usage)
+    * [Configuring modules in Puupet](#configuring-modules-in-puppet)
+    * [Configuring modules from Hiera](#configuring-modules-from-hiera)
 4. [Limitations - OS compatibility, etc.](#limitations)
 5. [Development - Guide for contributing to the module](#development)
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your module does and what kind of problems users can solve with it.
-
-This should be a fairly short description helps the user decide if your module is what they want.
-
+The octopass module handles installing and configuring [octopass](https://github.com/linyows/octopass).
 
 ## Setup
 
@@ -41,55 +28,104 @@ If there's more that they should know about, though, this is the place to mentio
 * Dependencies that your module automatically installs.
 * Warnings or other important notices.
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
+The octopass module requires the following puppet module:
 
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
+- [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib): version 4.6.x or newer
+- [puppetlabs-apt](https://forge.puppet.com/puppetlabs/apt): version 4.x (only Debian-based distributions).
 
-### Beginning with octopass
-
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+note: puppetlabs-apt is soft dependencies. If you are installing on Debian systems, you will need to configure appropriate versions of this module.
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+### Configuring modules in Puppet
 
-## Reference
+To set up the octopass in Puppet codes, you can configure like the following:
 
-This section is deprecated. Instead, add reference information to your code as Puppet Strings comments, and then use Strings to generate a REFERENCE.md in your module. For details on how to add code comments and generate documentation with Strings, see the Puppet Strings [documentation](https://puppet.com/docs/puppet/latest/puppet_strings.html) and [style guide](https://puppet.com/docs/puppet/latest/puppet_strings_style.html)
-
-If you aren't ready to use Strings yet, manually create a REFERENCE.md in the root of your module directory and list out each of your module's classes, defined types, facts, functions, Puppet tasks, task plans, and resource types and providers, along with the parameters for each.
-
-For each element (class, defined type, function, and so on), list:
-
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
-
-For example:
-
+```puppet
+class { '::octopass':
+  token        => 'iad87dih122ce66a1e20a751664c8a9dkoak87g7',
+  organization => 'yourorganization',
+  team         => 'yourteam',
+}
 ```
-### `pet::cat`
 
-#### Parameters
+### Configuring modules from Hiera
 
-##### `meow`
+To set up octopass using Hiera, you declare `include ::octopass` in puppet manifests and configure in Hiera like the following:
 
-Enables vocalization in your cat. Valid options: 'string'.
+```puppet
+include ::octopass
+```
 
-Default: 'medium-loud'.
+```yaml
+---
+octopass::token: iad87dih122ce66a1e20a751664c8a9dkoak87g7
+octopass::organization: yourorganization
+octopass::team: yourteam
+```
+
+#### Configure with owner/repository
+
+If you want to use a repository instead of team, you'd set `owner` and `repository`:
+
+```yaml
+octopass::token: iad87dih122ce66a1e20a751664c8a9dkoak87g7
+octopass::owner: hfm
+octopass::repository: puppet-octopass
+```
+
+#### Change group name
+
+If you want to use other name of group than team or repository, you'd set `group`:
+
+```yaml
+octopass::token: iad87dih122ce66a1e20a751664c8a9dkoak87g7
+octopass::organization: yourorganization
+octopass::team: yourteam
+octopass::group: othergroupname
+```
+
+#### For GitHub Enterprise
+
+With GitHub Enterprise, you'd change `endpoint`:
+
+```yaml
+octopass::endpoint: 'https://git.yourorg.com'
 ```
 
 ## Limitations
 
-In the Limitations section, list any incompatibilities, known issues, or other warnings.
+See `operatingsystem_support` in [metadata.json](./metadata.json)
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing to your project and how they should submit their work.
+### Running tests
 
-## Release Notes/Contributors/Etc. **Optional**
+The octopass puppet module contains tests for both [rspec-puppet](http://rspec-puppet.com) (unit tests) and [beaker-rspec](https://github.com/puppetlabs/beaker-rspec) (acceptance tests) to verify functionality. For detailed information on using these tools, please see their respective documentation.
 
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+#### Testing quickstart
+
+- Unit tests:
+
+```console
+$ bundle install
+$ bundle exec rake
+```
+
+- Acceptance tests:
+
+```console
+# Set your DOCKER_HOST variable
+$ eval "$(docker-machine env default)"
+
+# List available beaker nodesets
+$ bundle exec rake beaker_nodes
+centos7
+stretch
+xenial
+
+# Run beaker acceptance tests
+$ BEAKER_set=debian9 bundle exec rake beaker
+```
