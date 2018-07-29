@@ -7,6 +7,8 @@
     * [What octopass affects](#what-octopass-affects)
     * [Setup requirements](#setup-requirements)
 3. [Usage - Configuration options and additional functionality](#usage)
+    * [Configuring modules in Puupet](#configuring-modules-in-puppet)
+    * [Configuring modules from Hiera](#configuring-modules-flom-hiera)
 4. [Limitations - OS compatibility, etc.](#limitations)
 5. [Development - Guide for contributing to the module](#development)
 
@@ -37,7 +39,61 @@ note: puppetlabs-apt is soft dependencies. If you are installing on Debian syste
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+### Configuring modules in Puppet
+
+To set up the octopass in Puppet codes, you can configure like the following:
+
+```puppet
+class { '::octopass':
+  token        => 'iad87dih122ce66a1e20a751664c8a9dkoak87g7',
+  organization => 'yourorganization',
+  team         => 'yourteam',
+}
+```
+
+### Configuring modules from Hiera
+
+To set up octopass using Hiera, you declare `include ::octopass` in puppet manifests and configure in Hiera like the following:
+
+```puppet
+include ::octopass
+```
+
+```yaml
+---
+octopass::token: iad87dih122ce66a1e20a751664c8a9dkoak87g7
+octopass::organization: yourorganization
+octopass::team: yourteam
+```
+
+#### Configure with owner/repository
+
+If you want to use a repository instead of team, you'd set `owner` and `repository`:
+
+```yaml
+octopass::token: iad87dih122ce66a1e20a751664c8a9dkoak87g7
+octopass::owner: hfm
+octopass::repository: puppet-octopass
+```
+
+#### Change group name
+
+If you want to use other name of group than team or repository, you'd set `group`:
+
+```yaml
+octopass::token: iad87dih122ce66a1e20a751664c8a9dkoak87g7
+octopass::organization: yourorganization
+octopass::team: yourteam
+octopass::group: othergroupname
+```
+
+#### For GitHub Enterprise
+
+With GitHub Enterprise, you'd change `endpoint`:
+
+```yaml
+octopass::endpoint: 'https://git.yourorg.com'
+```
 
 ## Reference
 
