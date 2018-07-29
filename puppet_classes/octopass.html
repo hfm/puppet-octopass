@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: octopass
+  
+    &mdash; Documentation by YARD 0.9.15
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::octopass";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (o)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">octopass</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: octopass</h1>
+<div class="box_info">
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/init.pp
+    </dd>
+  </dl>
+</div>
+
+  <h2>Summary</h2>
+  Install and configure octopass.
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+  </div>
+</div>
+
+
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Basic usage</p>
+</div></p>
+      
+      <pre class="example code"><code>class { &#39;::octopass&#39;:
+  token        =&gt; &#39;iad87dih122ce66a1e20a751664c8a9dkoak87g7&#39;,
+  organization =&gt; &#39;yourorganization&#39;,
+  team         =&gt; &#39;yourteam&#39;,
+}</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>repo_ensure</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The resource should be in.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>repo_gpgkey_url</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The URL to GPG key for a package repository.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>package_ensure</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>What state the package should be in.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configfile</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The path to the default configuration.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configfile_owner</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The user to whom the file should belong.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configfile_group</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Which group should own the file.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configfile_mode</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The desired permissions mode for the file, in symbolic or numeric notation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>GitHub Personal Access Token.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>organization</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>GitHub organization</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>team</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>GitHub team</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>owner</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>GitHub onwer</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>repository</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>GitHub repository</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>endpoint</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The URL to endpoint.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The group to which the user belongs.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>home</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The user&#39;s home directory.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>shell</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Login shell.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>uid_starts</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>UID number to start.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gid</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>GID number.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cache</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>GitHub API cache second.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>syslog</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether use syslog.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>shared_users</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String]]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of shared users to associate with PHP.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://github.com/linyows/octopass" target="_parent" title="https://github.com/linyows/octopass">https://github.com/linyows/octopass</a></li>
+    
+  </ul>
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 55</span>
+
+class octopass (
+  String $repo_ensure,
+  String $repo_gpgkey_url,
+  String $package_ensure,
+  String $configfile,
+  String $configfile_owner,
+  String $configfile_group,
+  String $configfile_mode,
+  String $token,
+  String $organization,
+  String $team,
+  String $owner,
+  Optional[String] $repository,
+  String $endpoint,
+  Optional[String] $group,
+  Optional[String] $home,
+  Optional[String] $shell,
+  Integer $uid_starts,
+  Integer $gid,
+  Integer $cache,
+  Boolean $syslog,
+  Optional[Array[String]] $shared_users,
+) {
+
+  include octopass::repo
+  include octopass::install
+  include octopass::config
+
+  Class[&#39;::octopass::repo&#39;]
+  -&gt; Class[&#39;::octopass::install&#39;]
+  -&gt; Class[&#39;::octopass::config&#39;]
+
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>
