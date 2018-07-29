@@ -1,6 +1,6 @@
-# A description of what this class does
+# @summary Setup the repository for octopass
 #
-# @summary A short summary of the purpose of this class
+# @private
 #
 class octopass::repo {
 

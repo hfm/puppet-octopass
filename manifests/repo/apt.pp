@@ -1,3 +1,7 @@
+# @summary Setup the octopass repository for Debian/Ubuntu
+#
+# @private
+#
 class octopass::repo::apt {
 
   ensure_packages(['lsb-release', 'apt-transport-https'])
