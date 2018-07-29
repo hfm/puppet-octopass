@@ -8,7 +8,7 @@
     * [Setup requirements](#setup-requirements)
 3. [Usage - Configuration options and additional functionality](#usage)
     * [Configuring modules in Puupet](#configuring-modules-in-puppet)
-    * [Configuring modules from Hiera](#configuring-modules-flom-hiera)
+    * [Configuring modules from Hiera](#configuring-modules-from-hiera)
 4. [Limitations - OS compatibility, etc.](#limitations)
 5. [Development - Guide for contributing to the module](#development)
 
