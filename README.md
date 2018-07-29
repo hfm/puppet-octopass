@@ -14,7 +14,7 @@
 
 ## Description
 
-The octopass module handles installing and configuring[octopass](https://github.com/linyows/octopass).
+The octopass module handles installing and configuring [octopass](https://github.com/linyows/octopass).
 
 ## Setup
 
