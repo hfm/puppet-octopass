@@ -2,9 +2,9 @@
   "name": "hfm-octopass",
   "version": "0.1.0",
   "author": "Okumura Takahiro",
-  "summary": "",
+  "summary": "The octopass module handles installing and configuring octopass, management linux user and authn with the org/team on GitHub.",
   "license": "MIT",
-  "source": "",
+  "source": "https://github.com/hfm/puppet-octopass",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
