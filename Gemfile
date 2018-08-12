@@ -37,9 +37,9 @@ group :development do
 end
 
 group :acceptance do
-  gem 'beaker-puppet', require: false
-  gem 'beaker-docker', require: false
-  gem 'beaker-rspec',  require: false
+  gem 'beaker-puppet'
+  gem 'beaker-docker'
+  gem 'beaker-rspec'
 end
 
 puppet_version = ENV['PUPPET_GEM_VERSION']
