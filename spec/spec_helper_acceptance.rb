@@ -1,3 +1,4 @@
+require 'beaker-puppet'
 require 'beaker-rspec'
 
 logger.error('LOADED Puppet Octopass Module Spec Acceptance Helper')
