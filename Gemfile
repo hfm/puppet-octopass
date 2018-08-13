@@ -37,6 +37,7 @@ group :development do
 end
 
 group :acceptance do
+  gem 'beaker', '~> 3.0'
   gem 'beaker-puppet'
   gem 'beaker-docker'
   gem 'beaker-rspec'
