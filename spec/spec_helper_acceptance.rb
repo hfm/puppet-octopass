@@ -1,4 +1,5 @@
-require 'beaker-rspec'
+require 'bundler'
+Bundler.require :default, :acceptance
 
 logger.error('LOADED Puppet Octopass Module Spec Acceptance Helper')
 
