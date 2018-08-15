@@ -20,3 +20,11 @@ octopass::gid: 2000
 octopass::cache: 500
 octopass::syslog: false
 octopass::shared_users: ~
+
+nsswitch::octopass:
+  - files
+  - octopass
+  - sss
+nsswitch::passwd: "%{alias('nsswitch::octopass')}"
+nsswitch::shadow: "%{alias('nsswitch::octopass')}"
+nsswitch::group: "%{alias('nsswitch::octopass')}"
