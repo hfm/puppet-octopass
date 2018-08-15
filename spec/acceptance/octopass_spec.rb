@@ -1,12 +1,12 @@
 require 'spec_helper_acceptance'
 
 describe 'octopass class' do
-  let(:manifest) {
+  let(:manifest) do
     <<-MANIFEST
       include ::octopass
       include ::nsswitch
     MANIFEST
-  }
+  end
 
   it 'runs without errors' do
     expect(apply_manifest(manifest, catch_failures: true).exit_code).to eq 2
@@ -56,8 +56,8 @@ describe 'octopass class' do
   end
 
   describe file('/etc/nsswitch.conf') do
-    its(:content) { is_expected.to match /^passwd:\s+files octopass sss$/ }
-    its(:content) { is_expected.to match /^shadow:\s+files octopass sss$/ }
-    its(:content) { is_expected.to match /^group:\s+files octopass sss$/ }
+    its(:content) { is_expected.to match %r{^passwd:\s+files octopass sss$} }
+    its(:content) { is_expected.to match %r{^shadow:\s+files octopass sss$} }
+    its(:content) { is_expected.to match %r{^group:\s+files octopass sss$} }
   end
 end
