@@ -19,8 +19,6 @@ RSpec.configure do |c|
       on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
       on(host, puppet('module', 'install', 'puppetlabs-apt'))
 
-      on(host, puppet('module', 'install', 'trlinkin-nsswitch'))
-
       host[:hieradatadir] = 'hieradata'
       write_hiera_config_on(host, ['%{facts.os.name}', 'common'])
       copy_hiera_data_to(host, File.join(module_root, 'spec', 'fixtures', 'hieradata'))
