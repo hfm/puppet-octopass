@@ -16,7 +16,6 @@ rvm:
 env:
   global:
     - BEAKER_PUPPET_COLLECTION=puppet5 PUPPET_GEM_VERSION="~> 5.0"
-    - secure: CiQCMTEVp0Gb11DxQBs1hfhP/5PvEsYIcPMsipvrNpixfCj6bnTdkGUPkv+j9EQQeAISQRB9M+Ys+7zX1Otdvke/ZFO2UomUDblF/lQxKIL7hbz3PeWDhXkPt1ab9IKpnNAGTqlpRf3GtptWRaKp5DOqY3EyUAHjrhw3bVOL2Q6c0p2nlD4eglQVJFhh9pxZI88QU12xR3qXmhFv/I+JjejINAEdJdjfBT/Zf1CFwsQezTTGQOBSKz6sGK7UpcNVI59wjJZlD6jvcvSw2+3gBBJJsPxTZEgGtD+ixb4aAvC29mnX8A1Obrr0M7wX2UBK4rwFvmfZPkaeP9Cl9vkDgR0BgUR2wXXwmUFQXRLaE1u4t8/u1d+PjtyDTUMVCzjl2+l9tbRUDgfq8wQYN2GNC66G6pE71YqbHZnC/PCXUGXs4+Ve1b5zP7SAIu1yxYfAotyhStUptPlmVJ5Xx3wo8sHE99/i5EN+SZ/+g8Ou3cTuUu/WrtTetZfNpvd3DbAdTgXwf5QvIga0eIDaz0UB+xtehEKSeAxCnIauvq3rDbIEGe/hx+6P3A/gPsbVxgeBKw2q0lhJp9vzx/diO+tXc+kEyOviZWpDA4GziEKD4zh9ufAIoHg9fRy+M3rE/2buzELxIG/1cgeyOJHQkBNLdhHiE+oaNe5aKtmFGUidOto=
 matrix:
   fast_finish: true
   include:
