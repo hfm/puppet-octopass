@@ -4,7 +4,6 @@
 
 1. [Description](#description)
 2. [Setup - The basics of getting started with octopass](#setup)
-    * [What octopass affects](#what-octopass-affects)
     * [Setup requirements](#setup-requirements)
 3. [Usage - Configuration options and additional functionality](#usage)
     * [Configuring modules in Puupet](#configuring-modules-in-puppet)
@@ -17,16 +16,6 @@
 The octopass module handles installing and configuring [octopass](https://github.com/linyows/octopass).
 
 ## Setup
-
-### What octopass affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
 
 ### Setup Requirements
 
@@ -93,6 +82,49 @@ With GitHub Enterprise, you'd change `endpoint`:
 
 ```yaml
 octopass::endpoint: 'https://git.yourorg.com'
+```
+
+#### Combination with other modules
+
+Octopass in production requires [nsswitch.conf](http://man7.org/linux/man-pages/man5/nsswitch.conf.5.html) for resolving name, and sshd and [PAM](http://man7.org/linux/man-pages/man5/pam.conf.5.html) like the following:
+
+```puppet
+include ::octopass
+
+# https://forge.puppet.com/trlinkin/nsswitch
+include ::nsswitch
+
+# https://forge.puppet.com/ghoneycutt/ssh
+include ::ssh
+
+# https://forge.puppet.com/herculesteam/augeasproviders_pam
+pam { 'Set sss entry to system-auth auth':
+  ensure    => present,
+  service   => 'sshd',
+  type      => 'auth',
+  control   => 'requisite',
+  module    => 'pam_exec.so',
+  arguments => ['quiet', 'expose_authtok', '/usr/bin/octopass', 'pam'],
+}
+```
+
+```yaml
+---
+octopass::token: iad87dih122ce66a1e20a751664c8a9dkoak87g7
+octopass::organization: yourorganization
+octopass::team: yourteam
+
+nsswitch::octopass:
+  - files
+  - octopass
+  - sss
+nsswitch::passwd: "%{alias('nsswitch::octopass')}"
+nsswitch::shadow: "%{alias('nsswitch::octopass')}"
+nsswitch::group: "%{alias('nsswitch::octopass')}"
+
+ssh::sshd_authorized_keys_command: '/usr/bin/octopass'
+ssh::sshd_authorized_keys_command_user: 'root'
+ssh::sshd_use_pam: 'yes'
 ```
 
 ## Limitations
