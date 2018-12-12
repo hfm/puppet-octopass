@@ -5,6 +5,8 @@
   "summary": "The octopass module handles installing and configuring octopass, management linux user and authn with the org/team on GitHub.",
   "license": "MIT",
   "source": "https://github.com/hfm/puppet-octopass",
+  "project_page": "https://github.com/hfm/puppet-octopass",
+  "issues_url": "https://github.com/hfm/puppet-octopass/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
