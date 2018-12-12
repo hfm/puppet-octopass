@@ -1,6 +1,6 @@
 {
   "name": "hfm-octopass",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Okumura Takahiro",
   "summary": "The octopass module handles installing and configuring octopass, management linux user and authn with the org/team on GitHub.",
   "license": "MIT",
